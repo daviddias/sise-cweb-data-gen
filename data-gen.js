@@ -1,3 +1,5 @@
+var fs = require('fs')
+
 var fN = ['Maria', 'Matilde', 'Leonor', 'Mariana', 'Carolina', 'Beatriz', 'Ana', 'João', 'Rodrigo', 'Martim', 'Francisco', 'Santiago', 'Tomás', 'Guilherme']
 var lN = ['Silva', 'Santos', 'Pereira', 'Ferreira', 'Costa', 'Oliveira', 'Martins']
 var spec = ['Clínica Geral', 'Psiquiatria', 'Pediatria', 'Cardiologia', 'Ortopedia', 'Neurocirurgia']
@@ -179,19 +181,16 @@ for (i = 0; i < NUM_REQUESTS; i++) {
 }
 
 // DATA OUTPUT
-
-console.log(doctors)
-console.log(mediators)
-console.log(patients)
-console.log(acts)
-console.log(actsRmb)
+fs.writeFileSync('./doctors.json', JSON.stringify(doctors))
+fs.writeFileSync('./mediators.json', JSON.stringify(mediators))
+fs.writeFileSync('./patients.json', JSON.stringify(patients))
+fs.writeFileSync('./acts.json', JSON.stringify(acts))
+fs.writeFileSync('./acts-rmb.json', JSON.stringify(actsRmb))
 
 // descrição de actos com policy type textual e não indexavel por patiente
-console.log(actsRmbVerbose)
-
-console.log(reports)
+fs.writeFileSync('./acts-rmb-verbose.json', JSON.stringify(actsRmbVerbose))
+fs.writeFileSync('./reports.json', JSON.stringify(reports))
 
 // descrição de requets com status textual
-console.log(requestsVerbose)
-
-console.log(requests)
+fs.writeFileSync('./requests-verbose.json', JSON.stringify(requestsVerbose))
+fs.writeFileSync('./requests.json', JSON.stringify(requests))
